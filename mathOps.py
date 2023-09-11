@@ -1,21 +1,28 @@
-num1 = float(input("Digite o primeiro número: "))
-num2 = float(input("Digite o segundo número: "))
+import sys
 
-op = input("digite a operação desejada (soma, subtração, multiplicação, divisão): ")
+if len(sys.argv) != 4:
+    print("python mathOps.py <num1> <num2> <op>")
+    sys.exit(1)
+
+num1 = float(sys.argv[1])
+num2 = float(sys.argv[2])
+op = sys.argv[3]
 
 if op == "soma":
-    result = num1 + num2
-    print(f"{num1} + {num2} = {result}")
+    resultado = num1 + num2
+    print(f"{num1} + {num2} = {resultado}")
 elif op == "subtração":
-    result = num1 - num2
-    print(f"{num1} - {num2} = {result}")
+    resultado = num1 - num2
+    print(f"{num1} - {num2} = {resultado}")
 elif op == "multiplicação":
-    result = num1 * num2
-    print(f"{num1} * {num2} = {result}")
+    resultado = num1 * num2
+    print(f"{num1} * {num2} = {resultado}")
 elif op == "divisão":
     if num2 == 0:
         print("Erro: não é possível dividir por 0.")
     else:
-        result = num1 / num2
-        print(f"{num1} / {num2} = {result}")
+        resultado = num1 / num2
+        print(f"{num1} / {num2} = {resultado}")
+else:
+    print("Operação não reconhecida.")
 
