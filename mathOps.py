@@ -18,5 +18,6 @@ elif op == "divisão":
     else:
         result = num1 / num2
         print(f"{num1} / {num2} = {result}")
-
-
+    # codeql alert: [non-standard-convention]
+else:
+    print("Operação inválida. Escolha soma, subtração, multiplicação ou divisão.")
