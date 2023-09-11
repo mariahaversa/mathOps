@@ -13,7 +13,9 @@ elif op == "multiplicação":
     result = num1 * num2
     print(f"{num1} * {num2} = {result}")
 elif op == "divisão":
-
+    if num2 == 0:
+        print("Erro: não é possível dividir por 0.")
+    else:
         result = num1 / num2
         print(f"{num1} / {num2} = {result}")
 else:
