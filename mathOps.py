@@ -19,5 +19,5 @@ elif op == "divisão":
         result = num1 / num2
         print(f"{num1} / {num2} = {result}")
 else:
-    print("Operação inválida. Digite soma, subtração, multiplicação ou divisão.")
+    print("Operação inválida. Escolha soma, subtração, multiplicação ou divisão.")
 
