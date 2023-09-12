@@ -6,7 +6,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 TELEGRAM_BOT_TOKEN = "6643809195:AAHdpcv9NyY1CeB_2BPtMEgHJqjZHiCFoG8"
-TELEGRAM_CHAT_ID = "6657974100,"
+TELEGRAM_CHAT_ID = "6657974100"
 
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
