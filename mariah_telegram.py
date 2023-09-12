@@ -2,12 +2,12 @@ from telegram import Bot
 import asyncio
 
 
-bot_token = '6643809195:AAHdpcv9NyY1CeB_2BPtMEgHJqjZHiCFoG8'
+bot_token = ${{ secrets.TELEGRAM_TOKEN }}
 
 async def enviar_alerta():
     bot = Bot(token=bot_token)
 
-    chat_id = '6657974100'
+    chat_id = ${{ secrets.TELEGRAM_CHAT_ID }}
 
     message = 'Foram feitas modificações no repositório.'
 
