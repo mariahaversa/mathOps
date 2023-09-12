@@ -24,5 +24,5 @@ elif op == "divisão":
         resultado = num1 / num2
         print(f"{num1} / {num2} = {resultado}")
 else:
-    print("Operação não reconhecida.")
+    print("Operação inválida.")
 
