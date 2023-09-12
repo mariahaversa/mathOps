@@ -20,6 +20,12 @@ def github_webhook():
         bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
     return '', 200
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+def run_flask():
+    if __name__ == '__main__':
+        app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
+flask_thread = threading.Thread(target=run_flask)
+flask_thread.start()
+
+if flask_thread.is_alive():
+    flask_thread.join()  
