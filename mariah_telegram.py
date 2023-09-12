@@ -1,33 +1,18 @@
-import os
-import json
-import threading
 from telegram import Bot
-from flask import Flask, request
+import asyncio
 
 
-app = Flask(__name__)
+bot_token = '6643809195:AAHdpcv9NyY1CeB_2BPtMEgHJqjZHiCFoG8'
 
-TELEGRAM_BOT_TOKEN = "6643809195:AAHdpcv9NyY1CeB_2BPtMEgHJqjZHiCFoG8"
-TELEGRAM_CHAT_ID = "6657974100"
+async def enviar_alerta():
+    bot = Bot(token=bot_token)
 
-bot = Bot(token=TELEGRAM_BOT_TOKEN)
+    chat_id = '6657974100'
 
-@app.route('/github-webhook', methods=['POST'])
-def github_webhook():
-    data = json.loads(request.data)
-    if data['action'] == 'push':
-        repo_name = data['repository']['full_name']
-        sender_name = data['sender']['login']
-        message = f"Alterações no projeto {repo_name} feitas por {sender_name}!"
-        bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message)
-    return '', 200
+    message = 'Foram feitas modificações no repositório.'
 
-def run_flask():
-    if __name__ == '__main__':
-        app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    await bot.send_message(chat_id=chat_id, text=message)
 
-flask_thread = threading.Thread(target=run_flask)
-flask_thread.start()
-
-if flask_thread.is_alive():
-    flask_thread.join()  
+if __name__ == "__main__":
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(enviar_alerta())
